@@ -1,0 +1,690 @@
+/* 
+==============================================
+NEW "LIGHT & CLEAN" THEME
+==============================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700;900&display=swap');
+
+/*
+- Montserrat (sans-serif) for headings and UI elements.
+- Lora (serif) for body text or special headings.
+*/
+
+:root {
+    --primary-color: #034AA6;    /* The user's blue as an accent */
+    --bg-color: #F8F9FA;         /* Light Gray background */
+    --text-color: #212529;       /* Dark charcoal for text */
+    --secondary-text-color: #6c757d; /* Muted gray for descriptions */
+    --border-color: #dee2e6;     /* Light border color */
+    --card-bg-color: #FFFFFF;    /* White for cards */
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+/* --- Global Styles --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed header */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Header --- */
+header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 2.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, .nav-active {
+    color: var(--primary-color);
+}
+
+/* --- Main Content --- */
+main {
+    padding-top: 80px; /* Adjust for fixed header */
+}
+
+section {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+#home {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/img/hero-background.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #26150F; /* Changed to dark color */
+    /* Removed text-shadow as text is now dark on light background */
+}
+
+#home h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+#home p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Lora', serif;
+}
+
+/* Section Headings */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* --- Redesigned Project Cards --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.project-item {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.project-item .project-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain; /* Preserva a imagem inteira */
+    background-color: #f0f0f0; /* Fundo para preencher espaços vazios */
+}
+
+.project-item .project-content {
+    padding: 1.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Reverted to primary color */
+    margin: 0 0 0.5rem 0;
+}
+
+.project-item p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+    flex-grow: 1;
+}
+
+
+/* --- Services Section --- */
+.services-text-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.service-text-block {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.service-text-block:last-child {
+    border-bottom: none;
+}
+
+.service-text-block h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.service-text-block p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-family: 'Lora', serif;
+}
+
+/* --- About Section --- */
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+
+/* --- Contact Form Section --- */
+.contact-form {
+    max-width: 700px;
+    margin: 3rem auto 0;
+    padding: 3rem;
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    text-align: left;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fff;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(3, 74, 166, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .submit-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.contact-form .submit-button:hover {
+    background-color: #023682; /* Darker shade */
+    transform: translateY(-2px);
+}
+
+.form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+    display: none;
+}
+.form-message.success { background-color: #d1e7dd; color: #0a3622; }
+.form-message.error { background-color: #f8d7da; color: #58151c; }
+
+
+/* --- Footer --- */
+footer {
+    background-color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+}
+
+.social-links a, .footer-links a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover, .footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-links {
+    margin: 1.5rem 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #adb5bd;
+}
+
+/* --- Project Details Page --- */
+.project-details-section {
+    text-align: left;
+    padding-bottom: 4rem;
+}
+
+.project-header h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.project-meta {
+    color: var(--secondary-text-color);
+    font-family: 'Lora', serif;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.project-full-image {
+    width: 100%;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 3rem;
+    height: auto;
+    /* max-height removido para mostrar a imagem completa na altura original/proporcional */
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    margin-bottom: 3rem;
+}
+
+.project-body {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    max-width: 900px;
+}
+
+.project-body h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-back {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: #023682;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    #home h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav {
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0 1rem;
+    }
+
+    #home h1 {
+        font-size: 2.8rem;
+    }
+    
+    #home p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .gallery, .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-form {
+        margin: 2rem auto 0;
+        padding: 2rem;
+    }
+
+    .project-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slider-item img {
+        height: 300px;
+    }
+}
+
+/* --- About Page Styles --- */
+.about-header {
+    background-color: var(--card-bg-color);
+    padding: 4rem 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.image-placeholder {
+    background-color: #e9ecef;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-text-color);
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.team-section {
+    background-color: #fff;
+    padding: 4rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.member-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.role {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Project Gallery --- */
+.project-gallery {
+    margin-top: 4rem;
+}
+
+.project-gallery h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    height: auto; /* Altura automática para respeitar a proporção da imagem */
+    background-color: #eee;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Slider Styles --- */
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 1rem;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+    .slider-item {
+        min-width: 33.333%;
+    }
+}
+
+.slider-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain; /* Garante que o flyer/arte apareça inteiro */
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.slider-caption {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.slider-caption h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.slider-caption p {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+.slider-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0 10px;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.slider-btn:hover {
+    color: #023682;
+}
+
+.about-full-image {
+    width: 100%;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    object-fit: cover;
+    object-fit: contain;
+}
